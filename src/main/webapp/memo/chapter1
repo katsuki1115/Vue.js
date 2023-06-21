@@ -1,0 +1,29 @@
+Vue3について
+//インスタンスの作成方法
+Vue.createApp({
+}).mount('#app')
+
+//dataプロパティ
+//Vue3ではオブジェクトを返す関数のみ指定することが出来る
+Vue.createApp({
+	data: function() {
+		return{
+			message: 'this is Vue3'
+		}
+	}
+}).mount('#app')
+//classなら.を用いる
+//マウント前にDOM操作を行うと意図しない挙動に変わる可能性がある
+
+//ライフサイクル
+
+
+//type="checkbox"は単体と複数で判定値か配列に入るか変わってくる
+
+//
+computedのポイント
+データを加工したり、データの真偽を判定したり
+
+
+//methodsでメソッドを定義
+v-onイベント

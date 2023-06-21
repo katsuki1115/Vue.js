@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>ToDoアプリ</title>
+	<link rel="stylesheet" href="style.css" />
+	<script src="https://unpkg.com/vue@3.0.0/dist/vue.global.js"></script>
+</head>
+
+<body>
+	<h1>ToDo アプリ</h1>
+	<div id="app">
+		<div class="new-todo">
+			<div class="new-todo-item">
+				<label for="new-todo-title">タイトル</label>
+				<input v-model.trim="todoTitle" type="text" id="new-todo-title" form="form-todo" />
+			</div>
+			<div class="new-todo-item">
+				<label for="new-todo-description">説明</label>
+				<textarea v-model.trim="todoDescription" id="new-todo-description" form="form-todo"></textarea>
+			</div>
+			<div class="new-todo-category">
+				カテゴリ
+				<form @submit.prevent="createCategory">
+					<input v-model.trim="categoryName" type="text" />
+					<button type="submit">作成</button>
+				</form>
+			</div>
+			<div class="new-todo-action">
+				<form id="form-todo" @submit.prevent="createTodo">
+					<button type="submit">作成</button>
+				</form>
+			</div>
+		</div>
+<!--	チェックボックス-->
+		<div>
+			<div class="todo-search">
+				<div class="todo-search-item">
+					<label for="todo-search-done">終了したものを非表示にする
+						<input v-model="hideDoneTodo" type="checkbox" id="todo-search-done" />
+					</label>
+				</div>
+<!--		セレクトボックス-->
+				<div class="todo-search-item">
+					<select v-model="order">
+						<option value="desc">降順</option>
+						<option value="asc">昇順</option>
+					</select>
+				</div>
+				<div class="todo-search-item">
+					<label for="todo-search-keyword">キーワードで検索</label>
+					<input v-model.trim="searchWord" type="text" id="todo-search-keyword" />
+				</div>
+			</div>
+		</div>
+
+	</div>
+	<script src="app.js"></script>
+</body>
+
+</html>
