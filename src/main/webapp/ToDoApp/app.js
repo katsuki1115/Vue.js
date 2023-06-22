@@ -15,7 +15,7 @@ Vue.createApp({
 			order: 'desc',
 			
 			categoryName: '',
-			
+		
 			todos: [],
 			categories: [],
 		}
@@ -32,13 +32,27 @@ Vue.createApp({
 			return this.categories.indexOf(categoryName) !== -1
 		},
 	},
+	watch: {
+		todos: {
+			handler: function(next){
+				window.localStorage.setItem('todos', JSON.stringify(next))
+			},
+			deep: true,
+		},
+		categories: {
+			handler: function(next){
+				window.localStorage.setItem('categories', JSON.stringify(next))
+			},
+			deep: true,
+		},
+	},
 	methods: {
 		createTodo: function(){
 			if(!this.canCreateTodo){
 				return
 			}
 			this.todos.push({
-				id: 'todo-' + date.now(),
+				id: 'todo-' + ate.now(),
 				title: this.todoTitle,
 				description: this.todoDescription,
 				categories: this.todoCategories,
@@ -62,4 +76,16 @@ Vue.createApp({
 			this.categoryName = ''
 		},
 	},
+	created: function(){
+		const todos = window.localStorage.getItem('todos')
+		const categories = window.localStorage.getItem('categories')
+		
+		if(todos) {
+			this.todos = JSON.parse(todos)
+		}
+		
+		if(categories) {
+			this.categories = JSON.parse(categories)
+		}
+	}
 }).mount('#app')

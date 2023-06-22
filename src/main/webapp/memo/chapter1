@@ -27,3 +27,10 @@ computedのポイント
 
 //methodsでメソッドを定義
 v-onイベント
+v-bindディレクティブ
+HTMLの属性を状態によって変化させることができる
+src='' やclassなど
+配列を入れてあげることも出来る↓
+html    v-bind:class="classArr"        js   classArr: ['class-name-1', 'class-name-2'],
+output    <div class="class-name-1 class-name-2"></div>
+v-bind:style"{ color: defaultColor }"
