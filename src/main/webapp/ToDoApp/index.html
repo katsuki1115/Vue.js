@@ -22,6 +22,14 @@
 			</div>
 			<div class="new-todo-category">
 				カテゴリ
+				<ul>
+					<li v-for="category in categories" :key="category">
+						<label :for="'category-' + category">
+							<input v-model="todoCategories" type="checkbox" :id="'category' + category"
+								:value="category" form="form-todo" /> {{ category }}
+						</label>
+					</li>
+				</ul>
 				<form @submit.prevent="createCategory">
 					<input v-model.trim="categoryName" type="text" />
 					<button type="submit" :disabled="!canCreateCategory">作成</button>
@@ -33,15 +41,22 @@
 				</form>
 			</div>
 		</div>
-<!--	チェックボックス-->
+		<!--	チェックボックス-->
 		<div>
 			<div class="todo-search">
+				<div class="todo-search-item">
+					<label for="todo-search-category">カテゴリでフィルタ</label>
+					<select v-model="selectedCategory" id="todo-search-category">
+						<option value="">指定なし</option>
+						<option v-for="category in categories" :key="category" :value="category">{{ category }}</option>
+					</select>
+				</div>
 				<div class="todo-search-item">
 					<label for="todo-search-done">終了したものを非表示にする
 						<input v-model="hideDoneTodo" type="checkbox" id="todo-search-done" />
 					</label>
 				</div>
-<!--		セレクトボックス-->
+				<!--		セレクトボックス-->
 				<div class="todo-search-item">
 					<select v-model="order">
 						<option value="desc">降順</option>
@@ -53,9 +68,37 @@
 					<input v-model.trim="searchWord" type="text" id="todo-search-keyword" />
 				</div>
 			</div>
+			<transition-group name="todo-list" tag="ul" v-if="hasTodos" class="todo-list">
+			<ul v-if="hasTodos" class="todo-list">
+<!--				//親コンポーネント←ここに子コンポーネントが来る-->
+				<todo-item v-for="(todo, index) in resultTodos" :key="todo.id" :todo="todo"
+					v-model:done="todo.done"></todo-item>
+					</transition-group>
+				
+			</ul>
+			<p v-else>ToDoタスクはまだ登録されていません</p>
 		</div>
 
 	</div>
+	
+<!--	//コンポーネント子-->
+	<script type="text/x-template" id="template-todo-item">
+		<li class="todo-item">
+			<div class="todo-item-done">
+				<input :checked="done" @change="onChangeTodo" type="checkbox">
+			</div>
+			<div class="todo-item-content">
+				<div class="todo-item-date">{{new Date(todo.dateTime).toString()}}</div>
+				<h3 class="todo-item-title">{{todo.title}}</h3>
+				<div v-if="todo.description" class="todo-item-description">
+					{{todo.description}}
+				</div>
+				<ul class="todo-item-categories" v-if="todo.categories.length > 0">
+					<li v-for="category in todo.categories" :key="category" class="todo-item-category">{{category}}</li>
+				</ul>
+			</div>
+		</li >
+	</script>
 	<script src="app.js"></script>
 </body>
 
