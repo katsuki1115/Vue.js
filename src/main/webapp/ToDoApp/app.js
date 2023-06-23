@@ -59,6 +59,11 @@ Vue.createApp({
 			const categoryName = this.categoryName
 			return this.categories.indexOf(categoryName) !== -1
 		},
+		
+		hasTodos: function(){
+			return this.todos.length > 0
+		},
+		
 		resultTodos: function() {
 			const selectedCategory = this.selectedCategory//セレクトボックス
 			const hideDoneTodo = this.hideDoneTodo //チェックボックス
@@ -109,7 +114,7 @@ Vue.createApp({
 				return
 			}
 			this.todos.push({
-				id: 'todo-' + ate.now(),
+				id: 'todo-' + Date.now(),
 				title: this.todoTitle,
 				description: this.todoDescription,
 				categories: this.todoCategories,

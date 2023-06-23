@@ -1,10 +1,10 @@
-Vue3‚É‚Â‚¢‚Ä
-//ƒCƒ“ƒXƒ^ƒ“ƒX‚Ìì¬•û–@
+Vue3ï¿½É‚Â‚ï¿½ï¿½ï¿½
+//ï¿½Cï¿½ï¿½ï¿½Xï¿½^ï¿½ï¿½ï¿½Xï¿½Ìì¬ï¿½ï¿½ï¿½@
 Vue.createApp({
 }).mount('#app')
 
-//dataƒvƒƒpƒeƒB
-//Vue3‚Å‚ÍƒIƒuƒWƒFƒNƒg‚ð•Ô‚·ŠÖ”‚Ì‚ÝŽw’è‚·‚é‚±‚Æ‚ªo—ˆ‚é
+//dataï¿½vï¿½ï¿½ï¿½pï¿½eï¿½B
+//Vue3ï¿½Å‚ÍƒIï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½ï¿½Ô‚ï¿½ï¿½Öï¿½ï¿½Ì‚ÝŽwï¿½è‚·ï¿½é‚±ï¿½Æ‚ï¿½ï¿½oï¿½ï¿½ï¿½ï¿½
 Vue.createApp({
 	data: function() {
 		return{
@@ -12,25 +12,29 @@ Vue.createApp({
 		}
 	}
 }).mount('#app')
-//class‚È‚ç.‚ð—p‚¢‚é
-//ƒ}ƒEƒ“ƒg‘O‚ÉDOM‘€ì‚ðs‚¤‚ÆˆÓ}‚µ‚È‚¢‹““®‚É•Ï‚í‚é‰Â”\«‚ª‚ ‚é
+//classï¿½È‚ï¿½.ï¿½ï¿½pï¿½ï¿½ï¿½ï¿½
+//ï¿½}ï¿½Eï¿½ï¿½ï¿½gï¿½Oï¿½ï¿½DOMï¿½ï¿½ï¿½ï¿½ï¿½ï¿½sï¿½ï¿½ï¿½ÆˆÓ}ï¿½ï¿½ï¿½È‚ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É•Ï‚ï¿½ï¿½Â”\ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-//ƒ‰ƒCƒtƒTƒCƒNƒ‹
+//ï¿½ï¿½ï¿½Cï¿½tï¿½Tï¿½Cï¿½Nï¿½ï¿½
 
 
-//type="checkbox"‚Í’P‘Ì‚Æ•¡”‚Å”»’è’l‚©”z—ñ‚É“ü‚é‚©•Ï‚í‚Á‚Ä‚­‚é
+//type="checkbox"ï¿½Í’Pï¿½Ì‚Æ•ï¿½ï¿½ï¿½ï¿½Å”ï¿½ï¿½ï¿½lï¿½ï¿½ï¿½zï¿½ï¿½É“ï¿½ï¿½é‚©ï¿½Ï‚ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½
 
 //
-computed‚Ìƒ|ƒCƒ“ƒg
-ƒf[ƒ^‚ð‰ÁH‚µ‚½‚èAƒf[ƒ^‚Ì^‹U‚ð”»’è‚µ‚½‚è
+computedï¿½Ìƒ|ï¿½Cï¿½ï¿½ï¿½g
+ï¿½fï¿½[ï¿½^ï¿½ï¿½ï¿½ï¿½ï¿½Hï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Aï¿½fï¿½[ï¿½^ï¿½Ì^ï¿½Uï¿½ð”»’è‚µï¿½ï¿½ï¿½ï¿½
 
 
-//methods‚Åƒƒ\ƒbƒh‚ð’è‹`
-v-onƒCƒxƒ“ƒg
-v-bindƒfƒBƒŒƒNƒeƒBƒu
-HTML‚Ì‘®«‚ðó‘Ô‚É‚æ‚Á‚Ä•Ï‰»‚³‚¹‚é‚±‚Æ‚ª‚Å‚«‚é
-src='' ‚âclass‚È‚Ç
-”z—ñ‚ð“ü‚ê‚Ä‚ ‚°‚é‚±‚Æ‚ào—ˆ‚é«
+//methodsï¿½Åƒï¿½ï¿½\ï¿½bï¿½hï¿½ï¿½ï¿½`
+v-onï¿½Cï¿½xï¿½ï¿½ï¿½g
+v-bindï¿½fï¿½Bï¿½ï¿½ï¿½Nï¿½eï¿½Bï¿½u
+HTMLï¿½Ì‘ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô‚É‚ï¿½ï¿½ï¿½Ä•Ï‰ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½é‚±ï¿½Æ‚ï¿½ï¿½Å‚ï¿½ï¿½ï¿½
+src='' ï¿½ï¿½classï¿½È‚ï¿½
+ï¿½zï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½ï¿½é‚±ï¿½Æ‚ï¿½ï¿½oï¿½ï¿½ï¿½é«
 html    v-bind:class="classArr"        js   classArr: ['class-name-1', 'class-name-2'],
 output    <div class="class-name-1 class-name-2"></div>
 v-bind:style"{ color: defaultColor }"
+
+
+
+

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Modal Sample</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" />
+	<link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+	<div id="app" class="container">
+		<h1>Modal Sample</h1>
+		<!--	#app 内にテンプレートを書いていく-->
+		<!--サムネイルリストテンプレート-->
+		<ul class="imageList">
+			<li v-for="thumb in thumbnails" :key="thumb.id" class="imageList-item">
+				<!-- クリックイベント -->
+				<button type="button" @click="openModal(thumb)" class="imageList-button">
+					<img :src="thumb.src" alt="" class="imageList-thumb" />
+				</button>
+			</li>
+		</ul>
+		<!--END: サムネイルテンプレート-->
+		<!--START:　モーダルテンプレート-->
+		<transition tag="div" name="modal" @after-leave="afterLeave">
+			<div class="modal-container" v-show="isVisible">
+				<div class="modal-overlay" @click.self="closeModal">
+					<div class="modal-body" v-if="currentThumbnail !== undefined">
+						<div class="modal-image-container" :class="{'isLoaded': isThumbnailLoaded}">
+							<transition tag="div" mode="out-in" name="thumbnail">
+								<div :key="currentThumbnail.id" :style="containerStyle">
+									<img :src="currentThumbnail.src" alt="" class="modal-image"
+										@load.prevent.stop="onLoad" />
+								</div>
+							</transition>
+						</div>
+						<!--					ボタンclose-->
+						<p>
+							<button class="button button--close" @click="closeModal">Close</button>
+						</p>
+						<!--					ボタンprev,next-->
+						<button class="button modalButton modalButton--prev" @click="onClickPrev">Prev</button>
+						<button class="button modalButton modalButton--next" @click="onClickNext">Next</button>
+					</div>
+				</div>
+			</div>
+		</transition>
+		<!--END: モーダルテンプレート-->
+
+	</div>
+
+	<!--Vue.jsの本体	-->
+	<script src="https://cdn.jsdelivr.net/npm/vue@3.0.0/dist/vue.global.js"></script>
+	<!--Lodash...開発でよく使う関数をまとめたライブラリ-->
+	<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.15/lodash.min.js"></script>
+	<!--アプリケーションコードを記述するJSファイルとなる-->
+	<script src="./app.js"></script>
+	</div>
+</body>
+
+</html>
