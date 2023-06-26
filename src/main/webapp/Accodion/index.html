@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" />
+	<link rel="stylesheet" href="./style.css" />
+</head>
+
+<body>
+	<div id="app" class="container">
+      <h1>Accordion Sample</h1>
+      <my-sample-accordion title="Title 1">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo, optio!
+      </my-sample-accordion>
+      <my-sample-accordion title="Title 2">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit.
+        <br />Voluptatem eius nisi inventore magnam eos.
+      </my-sample-accordion>
+      <my-sample-accordion title="Title 3">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo, optio!
+      </my-sample-accordion>
+    </div>
+	
+	<script type="text/x-template" id="my-sample-accordion">
+		<dl class="accordion">
+			<dt class="accordion_ttl" :class="{ 'is_open':!isShown }" role="button" @click="isShown = !isShown">
+				{{ title }}
+				</dt>
+			<transition name="accordionBody" @enter="enter" @after-enter="afterTransition" @leave="leave" @after-leave="afterTransition">
+				<dd v-show="isShown" class="accordion_body">
+					<div class="accordion_txt">
+						<slot></slot>
+					</div>
+				</dd>
+			</transition>
+		</dl>
+	</script>
+
+	<script src="https://cdn.jsdelivr.net/npm/vue@3.0.0/dist/vue.global.js"></script>
+	<script src="./app.js"></script>
+</body>
+
+</html>

@@ -2,8 +2,8 @@
 <html>
 
 <head>
-	<meta charset="UTF-8">
-	<title>Insert title here</title>
+	<meta charset="UTF-8" />
+	<title>Carousel Sample</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" />
 	<link rel="stylesheet" href="./style.css" />
 </head>
@@ -12,19 +12,19 @@
 	<div id="app" class="container">
 		<h1>Carousel Sample</h1>
 		<div class="carousel-wrapper">
-			<!--START: カルーセルのテンプレート -->
 			<transition tag="div" :name="imageTransitionName">
 				<div class="carousel-item" :key="target.id" :style="{ height: currentHeight + 'px' }">
 					<img :src="target.src" alt="" />
 				</div>
 			</transition>
+
 			<ol class="carousel-pager">
 				<li v-for="(item, index) in items" :key="item.id">
 					<button tabindex="0" :class="{ 'isCurrent': index === selectedIndex }"
 						@click="onClickPager(index)"></button>
 				</li>
 			</ol>
-			<!--START: PREV / NEXTボタンのテンプレート -->
+
 			<ul class="carousel-navigation">
 				<li>
 					<button class="button carouselButton carouselButton--prev" @click="onClickPrev">
@@ -37,7 +37,6 @@
 					</button>
 				</li>
 			</ul>
-			<!--END: PREV / NEXTボタンのテンプレート -->
 		</div>
 	</div>
 
