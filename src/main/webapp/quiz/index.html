@@ -11,7 +11,7 @@
 	<div id="app" class="container">
 		<div class="columns is-mobile is-centered">
 			<div class="column is-half">
-				<h1 class="title is-1 has-text-centered">Vue.js クイズ</h1>
+				<h1 class="title is-1 has-text-centered">クイズ</h1>
 				<qa-template v-if="currentQuestion" :question-text="currentQuestion.text"
 					@click-yes-btn="doAnsewer($event)" @click-no-btn="doAnsewer($event)"></qa-template>
 				<result-template v-if="!currentQuestion" :total-score="totalScore" :questions="questions"
@@ -80,27 +80,9 @@
 				return {
 					questions: [
 						{
-							text: "v-on:click の省略記法は #click である",
-							answer: ANSWER.NO
-						},
-						{
-							text:
-								"単一要素にトランジション効果を付与するのは aniamtion コンポーネントである",
-							answer: ANSWER.NO
-						},
-						{
-							text: "v-for の区切り文字として in の他に of を使用できる",
-							answer: ANSWER.YES
-						},
-						{
-							text:
-								"app.component で定義したコンポーネントを使う場合は、定義した後に Vue.createApp() の components オプション内で再度定義する必要がある",
-							answer: ANSWER.NO
-						},
-						{
-							text: "Vue.js をもっと書きたい",
-							answer: ANSWER.YES
-						}
+					text: "大城侑也の好きな食べ物は梅である",
+					answer: ANSWER.YES
+				}
 					],
 					currentIndex: 0,
 					yourAnswers: []
